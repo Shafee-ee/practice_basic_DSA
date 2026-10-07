@@ -1,0 +1,11 @@
+{
+  "messaging_product": "whatsapp",
+  "to": "918971896292",
+  "type": "template",
+  "template": {
+    "name": "test_message",
+    "language": {
+      "code": "en_US"
+    }
+  }
+}
