@@ -37,31 +37,119 @@
 //   }
 // }
 
-const nums = [10, 20, 30, 40];
-const numsExperiment = [1, 2, 3, 4, 5];
-const numsEvenFilter = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-const numsGreaterThanTen = [5, 12, 8, 20, 3, 15];
-const doubled = nums.map((num) => {
-  return num * 2;
-});
+// const nums = [10, 20, 30, 40];
+// const numsExperiment = [1, 2, 3, 4, 5];
+// const numsEvenFilter = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+// const numsGreaterThanTen = [5, 12, 8, 20, 3, 15];
+// const doubled = nums.map((num) => {
+//   return num * 2;
+// });
 
-const doubledShortened = nums.map((num) => num * 3);
-const addition = numsExperiment.map((num) => num + 5);
+// const doubledShortened = nums.map((num) => num * 3);
+// const addition = numsExperiment.map((num) => num + 5);
 
-const evens = numsEvenFilter.filter((num) => num % 2 === 0);
-const GT10 = numsGreaterThanTen.filter((num) => num > 10);
+// const evens = numsEvenFilter.filter((num) => num % 2 === 0);
+// const GT10 = numsGreaterThanTen.filter((num) => num > 10);
 
-const result = numsGreaterThanTen.findIndex((num) => num > 10);
+// const result = numsGreaterThanTen.findIndex((num) => num > 10);
 
-const totalReduce = nums.reduce((sum, num) => {
-  return sum + num;
+// const totalReduce = nums.reduce((sum, num) => {
+//   return sum + num;
+// }, 0);
+
+// const productReduce = nums.reduce((product, num) => {
+//   return product * num;
+// }, 0);
+
+// console.log("Product nums:", totalReduce);
+
+// console.log("Total nums:", totalReduce);
+// console.log(nums.some((num) => num > 41));
+// console.log("findIndex result:", result);
+// console.log("Greater Than 10:", GT10);
+// console.log("Addition:", addition);
+// console.log("Doubled:", doubled);
+// console.log("Doubled shortened:", doubledShortened);
+// console.log("Number even Filter:", evens);
+
+console.log("************* MAPS ************");
+const nums = [20, 35, 57, 60];
+
+const cubed = nums.map((num) => num * 3);
+
+console.log("Cubed nums", cubed);
+
+console.log("************* addition ************");
+
+const added = nums.map((nums) => nums + 3);
+
+console.log("Added 2 to each num:", added);
+
+console.log("************* Filter ************");
+const check5s = nums.filter((num) => num % 5 === 0);
+console.log("check if number divisible by 5", check5s);
+
+console.log("************* Reduce ************");
+
+const productReduce = nums.reduce((product, num) => {
+  return product * num;
 }, 0);
 
-console.log("Total nums:", totalReduce);
-console.log(nums.some((num) => num > 41));
-console.log("findIndex result:", result);
-console.log("Greater Than 10:", GT10);
-console.log("Addition:", addition);
-console.log("Doubled:", doubled);
-console.log("Doubled shortened:", doubledShortened);
-console.log("Number even Filter:", evens);
+console.log("Product reduce:", productReduce);
+
+console.log("************* Reduce complex ************");
+const cart = [
+  { name: "Apples", price: 100 },
+  { name: "oranges", price: 150 },
+  { name: "Kiwi", price: 220 },
+  { name: "Avacado", price: 100 },
+];
+
+const cartTotal = cart.reduce((sum, item) => {
+  return sum + item.price;
+}, 0);
+
+console.log(cartTotal);
+
+console.log("************* Reduce complex 2 ************");
+const trips = [
+  { transporter: "ABC", amount: 6000 },
+  { transporter: "HIJ", amount: 9000 },
+  { transporter: "ABC", amount: 8000 },
+  { transporter: "HIJ", amount: 16000 },
+];
+
+const tripTotals = trips.reduce((acc, trip) => {
+  acc[trip.transporter] = (acc[trip.transporter] || 0) + trip.amount;
+
+  return acc;
+}, {});
+
+console.log(tripTotals);
+
+console.log("************* Reduce complex 3 ************");
+
+const products = [
+  { id: 101, name: "apples" },
+  { id: 202, name: "Orange" },
+];
+
+const productsById = products.reduce((acc, product) => {
+  acc[product.id] = product;
+  return acc;
+}, {});
+
+console.log(productsById[202]);
+
+const tripsTest = [
+  { transporter: "ABC", amount: 1000 },
+  { transporter: "XYZ", amount: 2000 },
+  { transporter: "ABC", amount: 3000 },
+];
+
+const tripsTestResult = tripsTest.reduce((acc, trip) => {
+  acc[trip.transporter] = (acc[trip.transporter] || 0) + trip.amount;
+  return acc;
+}, {});
+
+console.log("Trip test result:", tripsTestResult);
