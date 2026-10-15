@@ -1,4 +1,5 @@
-const total = [{ transporter: "ABC", amount: 5000 }];
+console.log("********************split reverse join ***************");
+const str = "hello";
+const reverse = str.split("").reverse().join("");
 
-const result = (total[transporter] = amount);
-console.log(result);
+console.log("cleaned string:", reverse);

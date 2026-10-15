@@ -153,3 +153,34 @@ const tripsTestResult = tripsTest.reduce((acc, trip) => {
 }, {});
 
 console.log("Trip test result:", tripsTestResult);
+
+const numbers = [1, 2, 3, 4, 5, 6];
+
+console.log("********************fandmNumbersResult***************");
+const fandmNumbersResult = numbers.filter((num) => num % 2 === 0);
+const resultExcercise = fandmNumbersResult.map((num) => num * 2);
+console.log("Excercise 2:", resultExcercise);
+
+console.log("********************Find Excercise***************");
+const numbers2 = [10, 20, 30, 40, 50, 69];
+
+const findExcercise = numbers2.find((num) => num > 30);
+const findOdd = numbers2.some((num) => num % 2 != 0);
+const findEvenAll = numbers2.every((num) => num % 2 === 0);
+const findIndexOfResult = numbers2.findIndex((num) => num > 25);
+console.log("First number greater than 30:", findExcercise);
+console.log(
+  "Find odd:",
+  findOdd,
+  "is every digit even:",
+  findEvenAll,
+  "find the index of first number greater than 25:",
+  findIndexOfResult,
+);
+
+console.log("********************reduce exercise***************");
+
+const numbersReduce = [10, 20, 30, 40, 50];
+
+const reduceExercise = numbersReduce.reduce((acc, num) => acc + num, 0);
+console.log("reduce sum exercise:", reduceExercise);
