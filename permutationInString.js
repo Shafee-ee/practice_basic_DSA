@@ -1,7 +1,7 @@
 function permutation(string1, string2) {
   if (string1.length > string2.length) return false;
-  const targetFreq = {};
-  const windowFreq = {};
+  const targetFreq = {}; // target object initialized
+  const windowFreq = {}; // wondow frequency initialized
 
   //count characters in string 1
   for (const char of string1) {
