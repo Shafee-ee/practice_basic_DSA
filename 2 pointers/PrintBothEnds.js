@@ -122,3 +122,118 @@ let write = 1;
 const uniqueCount = removeDuplicates(numsDuplicate);
 console.log(uniqueCount);
 console.log(numsDuplicate.slice(0, uniqueCount));
+
+console.log("****************Move Zeroes to end *****************");
+function moveZeroes(nums) {
+  let write = 0;
+
+  for (let read = 0; read < nums.length; read++) {
+    if (nums[read] !== 0) {
+      [nums[write], nums[read]] = [nums[read], nums[write]];
+      write++;
+    }
+  }
+
+  return nums;
+}
+
+console.log(moveZeroes([0, 1, 0, 3, 12]));
+
+console.log("**************** Merge Two Sorted Arrays *****************");
+
+function mergeSortedArrays(arr1, arr2) {
+  let left = 0;
+  let right = 0;
+  const result = [];
+
+  while (left < arr1.length && right < arr2.length) {
+    if (arr1[left] < arr2[right]) {
+      result.push(arr1[left]);
+      left++;
+    } else {
+      result.push(arr2[right]);
+      right++;
+    }
+  }
+
+  // Add any remaining elements from arr1
+  while (left < arr1.length) {
+    result.push(arr1[left]);
+    left++;
+  }
+
+  // Add any remaining elements from arr2
+  while (right < arr2.length) {
+    result.push(arr2[right]);
+    right++;
+  }
+
+  return result;
+}
+
+console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6]));
+// [1, 2, 3, 4, 5, 6]
+
+console.log(mergeSortedArrays([1, 4, 8], [2, 3]));
+// [1, 2, 3, 4, 8]
+
+console.log("**************** Merge Two Sorted Arrays *****************");
+
+function closestSum(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  let closestDiff = Infinity;
+  let result = [];
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+
+    const difference = Math.abs(target - sum);
+
+    if (difference < closestDiff) {
+      closestDiff = difference;
+      result = [arr[left], arr[right]];
+    }
+
+    if (sum < target) {
+      left++;
+    } else if (sum > target) {
+      right--;
+    } else {
+      return result;
+    }
+  }
+
+  return {
+    numbers: result,
+    sum: result[0] + result[1],
+  };
+}
+console.log(closestSum([1, 3, 4, 7, 10, 12], 25));
+
+console.log("**************** Pair with a difference *****************");
+
+function hasPairWithDifference(nums, target) {
+  let left = 0;
+  let right = 1;
+
+  while (right < nums.length) {
+    if (left === right) {
+      right++;
+      continue;
+    }
+
+    const diff = nums[right] - nums[left];
+    if (diff === target) {
+      return true;
+    } else if (diff < target) {
+      right++;
+    } else {
+      left++;
+    }
+  }
+  return false;
+}
+
+console.log(hasPairWithDifference([1, 4, 7, 9], 2));
